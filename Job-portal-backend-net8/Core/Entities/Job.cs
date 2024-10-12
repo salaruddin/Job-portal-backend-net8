@@ -12,7 +12,7 @@ namespace Job_portal_backend_net8.Core.Entities
 
         //relationship with Company model
         [ForeignKey(nameof(CompanyId))]
-        public int CompanyId { get; set; } 
+        public long CompanyId { get; set; } 
         public Company Company { get; set; }
 
         //relationship with Candidate model

@@ -14,7 +14,7 @@ namespace Job_portal_backend_net8.Core.Entities
         //relations
 
         [ForeignKey(nameof(JobId))]
-        public int JobId { get; set; }
+        public long JobId { get; set; }
         public Job Job { get; set; }
     }
 }
