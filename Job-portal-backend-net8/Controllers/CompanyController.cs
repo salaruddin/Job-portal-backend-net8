@@ -4,6 +4,7 @@ using Job_portal_backend_net8.Core.DTOs.Company;
 using Job_portal_backend_net8.Core.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Job_portal_backend_net8.Controllers
 {
@@ -31,5 +32,22 @@ namespace Job_portal_backend_net8.Controllers
             return Ok("Company Created Successfully");
 
         }
+
+        //Get all companies
+        [HttpGet]
+        [Route("Get")]
+        public async Task<ActionResult<IEnumerable<CompanyGetDTO>>> GetCompanies()
+        {
+            var companies = await _context.Companies.OrderByDescending(c=> c.CreatedAt).ToListAsync();
+            var convertedCompanies = _mapper.Map<IEnumerable<CompanyGetDTO>>(companies);
+
+            return Ok(convertedCompanies);
+        }
+
+        //Get one company by Id
+
+        //Update company
+
+        //Delete company
     }
 }

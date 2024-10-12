@@ -9,6 +9,7 @@ namespace Job_portal_backend_net8.Core.AutoMapperConfig
         public AutoMapperConfigProfile() {
 
             CreateMap<CompanyCreateDTO,Company>();
+            CreateMap<Company, CompanyGetDTO>();
         }
     }
 }
